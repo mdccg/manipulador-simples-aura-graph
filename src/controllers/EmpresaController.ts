@@ -5,23 +5,23 @@ import { Colaborador } from './../models/Colaborador';
 import { criarSessao } from './../config/db';
 
 export class EmpresaController extends Controller {
-  private _empresa?: Empresa;
+  private _empresa: Empresa;
   
   constructor(driver: Driver, empresa: Empresa) {
     super(driver);
     this.empresa = empresa;
   }
 
-  public get empresa(): Empresa | undefined {
+  public get empresa(): Empresa {
     return this._empresa;
   }
 
-  public set empresa(value: Empresa | undefined) {
+  public set empresa(value: Empresa) {
     this._empresa = value;
   }
 
   async inserirNoGrafo() {
-    const sessao = criarSessao(this.driver as Driver);
+    const sessao = criarSessao(this.driver);
     try {
       const writeQuery = `
         CREATE (:Empresa { nome: $nome_empresa })
@@ -29,11 +29,11 @@ export class EmpresaController extends Controller {
 
       await sessao.executeWrite(transactionWork =>
         transactionWork.run(writeQuery, {
-          nome_empresa: this.empresa?.nome
+          nome_empresa: this.empresa.nome
         })
       );
       
-      console.info(`A empresa ${this.empresa?.nome} foi criada com sucesso.`);
+      console.info(`A empresa ${this.empresa.nome} foi criada com sucesso.`);
 
     } catch(erro) {
       console.error(`Houston, temos um problema: ${erro}`);
@@ -44,7 +44,7 @@ export class EmpresaController extends Controller {
   }
 
   async contratar(colaborador: Colaborador) {
-    const sessao = criarSessao(this.driver as Driver);
+    const sessao = criarSessao(this.driver);
 
     try {
       const writeQuery = `
@@ -55,7 +55,7 @@ export class EmpresaController extends Controller {
   
       await sessao.executeWrite(transactionWork => 
         transactionWork.run(writeQuery, {
-          nome_empresa: this.empresa?.nome,
+          nome_empresa: this.empresa.nome,
           nome_colaborador: colaborador.nome,
           genero_colaborador: colaborador.genero,
           data_nascimento_colaborador: `${colaborador.data_nascimento}`,
@@ -63,7 +63,7 @@ export class EmpresaController extends Controller {
         })
       );
   
-      console.info(`O colaborador ${colaborador.nome} foi contratado pela empresa ${this.empresa?.nome}.`);
+      console.info(`O colaborador ${colaborador.nome} foi contratado pela empresa ${this.empresa.nome}.`);
 
     } catch(erro) {
       console.error(`Houston, temos um problema: ${erro}`);
@@ -75,7 +75,7 @@ export class EmpresaController extends Controller {
   }
 
   async estabelecerMentoria(senior: Colaborador, junior: Colaborador) {
-    const sessao = criarSessao(this.driver as Driver);
+    const sessao = criarSessao(this.driver);
 
     try {
       const writeQuery = `

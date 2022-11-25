@@ -1,7 +1,7 @@
 import { Pessoa } from './Pessoa';
 
 export class Colaborador extends Pessoa {
-  private _ocupacao: string = '';
+  private _ocupacao: string;
 
   constructor(nome: string, genero: string, data_nascimento: Date, ocupacao: string) {
     super(nome, genero, data_nascimento);

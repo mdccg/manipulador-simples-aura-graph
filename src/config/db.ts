@@ -1,4 +1,4 @@
-import neo4j, { Driver, AuthToken, Session, session } from 'neo4j-driver';
+import neo4j, { Driver, AuthToken, Session } from 'neo4j-driver';
 
 export const criarDriver = (): Driver => {
   const uri: string = process.env.DATABASE_URI_CONNECTION as string;

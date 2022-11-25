@@ -1,7 +1,7 @@
 import { Entidade } from './Entidade';
 
 export class Empresa extends Entidade {
-  private _nome: string = '';
+  private _nome: string;
 
   constructor(nome: string) {
     super();

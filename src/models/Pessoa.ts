@@ -1,9 +1,9 @@
 import { Entidade } from './Entidade';
 
 export class Pessoa extends Entidade {
-  private _nome: string = '';
-  private _genero: string = '';
-  private _data_nascimento: Date = new Date();
+  private _nome: string;
+  private _genero: string;
+  private _data_nascimento: Date;
 
   constructor(nome: string, genero: string, data_nascimento: Date) {
     super();
