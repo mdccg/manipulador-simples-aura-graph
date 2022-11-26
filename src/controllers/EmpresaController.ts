@@ -1,4 +1,4 @@
-import { Driver, session } from 'neo4j-driver';
+import { Driver } from 'neo4j-driver';
 import { Empresa } from './../models/Empresa';
 import { Controller } from './Controller';
 import { Colaborador } from './../models/Colaborador';
