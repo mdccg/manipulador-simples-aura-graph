@@ -17,7 +17,7 @@ Este foi o segundo repositório de código apresentado no [Curso Superior de TSI
 
 O exemplo confeccionado para esta atividade utiliza um [modelo relacional](#galeria) redigido por mim para explicar como o mecanismo do banco de dados Neo4j AuraDB facilita relacionamentos de muitos para muitos. Entretanto, como o enunciado da atividade é simples e não exige verificação e validação, o app desenvolvido pulou várias etapas de segurança, como por exemplo: verificar a existência de um vértice no grafo antes de cadastrá-lo.
 
-Apesar disso, reconheço que os códigos-fonte presentes neste repositório são rudimentares e não devem ser utilizados em quaisquer apps profissionais a fim de evitar confeccção de código-fonte legado. Portanto, foram escritos apenas para fins didáticos.
+Apesar disso, reconheço que os códigos-fonte presentes neste repositório são rudimentares e não devem ser utilizados em quaisquer apps profissionais a fim de evitar confecção de código-fonte legado. Portanto, foram escritos apenas para fins didáticos.
 
 ## Pilha de tecnologia
 
